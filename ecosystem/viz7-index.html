@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Wolves Transformed Yellowstone's Ecosystem</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="viz7-style.css">  
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>How Wolves Revived Yellowstone's Ecosystem</h1>
+        </div>
+    </header>
+
+    <section id="intro">
+        <div class="container">
+            <p>With wolves back in Yellowstone, the balance of life began to shift almost immediately. Elk, which had long dominated open meadows and riverbanks without any natural predators, suddenly had to move more cautiously. The once overgrazed valleys were given room to heal. Trees that had stopped growing — aspen, willow, and cottonwood — began to regenerate. As the plants came back, so did the animals that depended on them. Beavers returned and built dams, creating habitats for fish and birds. Songbirds reappeared. Coyotes declined, making way for small mammal populations to recover. Even the rivers changed course as vegetation stabilized soil and prevented erosion.</p>
+
+            <p>This was more than a predator-prey relationship — it was a chain reaction that transformed the entire ecosystem. One species, reintroduced with care and purpose, had unknowingly reawakened Yellowstone.</p>
+        </div>
+    </section>
+
+    <section id="scrolly">
+        <div class="sticky-chart">
+            <div id="chart"></div>
+        </div>
+        <div class="steps">
+            <div class="step" data-step="elk">
+                <div class="step-content">
+                    <h2>1995: Ecosystem in Crisis</h2>
+                    <p>Without wolves, elk overgrazed the landscape:</p>
+                    <div class="stats">
+                        <div class="stat">
+                            <div class="value">16,791</div>
+                            <div class="label">Elk</div>
+                        </div>
+                        <div class="stat">
+                            <div class="value">50cm</div>
+                            <div class="label">Aspen Height</div>
+                        </div>
+                        <div class="stat">
+                            <div class="value">0</div>
+                            <div class="label">Young Cottonwoods</div>
+                        </div>
+                    </div>
+                    <p class="card-note">
+                        <em>Without wolves, elk browsed freely, stripping vegetation and damaging riverbanks.</em>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="step" data-step="wolves">
+                <div class="step-content">
+                    <h2>1995–2003: Wolves Return</h2>
+                    <p>Wolves were reintroduced and their numbers grew to 174 by 2003. Elk numbers began to fall and their behavior changed.</p>
+                    <div class="stats">
+                        <div class="stat highlight">
+                            <div class="value">174</div>
+                            <div class="label">Wolves by 2003</div>
+                        </div>
+                        <div class="stat">
+                            <div class="value">6,070</div>
+                            <div class="label">Elk by 2010</div>
+                        </div>
+                    </div>
+                    <p class="card-note">
+                        <em>As apex predators, wolves don’t just hunt - they shape behavior, create fear zones, and restore balance.</em>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="step" data-step="vegetation">
+                <div class="step-content">
+                    <h2>2010: Forests Recover</h2>
+                    <p>With less browsing pressure, aspen and willow heights increased dramatically. Cottonwood recruitment began for the first time in decades.</p>
+                    <div class="stats">
+                        <div class="stat">
+                            <div class="value">265cm</div>
+                            <div class="label">Aspen Height</div>
+                        </div>
+                        <div class="stat">
+                            <div class="value">156</div>
+                            <div class="label">Young Cottonwoods</div>
+                        </div>
+                        <div class="stat">
+                            <div class="value">200cm</div>
+                            <div class="label">Willow Height</div>
+                        </div>
+                    </div>
+                    <p class="card-note">
+                        <em>These trees are vital for nesting birds, bank stability, and beaver food. Their comeback is key to biodiversity.</em>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="step" data-step="beaver">
+                <div class="step-content">
+                    <h2>2020: Biodiversity Returns</h2>
+                    <p>Beaver colonies increased, songbird diversity quadrupled, and stream erosion dropped by 75%.</p>
+                    <div class="stats">
+                        <div class="stat">
+                            <div class="value">25</div>
+                            <div class="label">Beaver Colonies</div>
+                        </div>
+                        <div class="stat">
+                            <div class="value">8/10</div>
+                            <div class="label">Songbird Diversity</div>
+                        </div>
+                        <div class="stat">
+                            <div class="value">2/10</div>
+                            <div class="label">Stream Erosion</div>
+                        </div>
+                    </div>
+                    <p class="card-note">
+                        <em>Beavers are engineers - their dams slow water, create wetlands, and support entire food webs.<br>
+                            Songbirds are a sign of ecosystem health. Their diversity reflects recovery across the entire landscape.<br>
+                            As plant roots stabilized soil, rivers ran clearer and straighter - erosion fell, and fish habitats improved.</em>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="conclusion">
+        <div class="container">
+            <p>As the land reshaped itself, a deeper truth emerged: wolves were never the villains. Their presence was vital, their absence devastating. For decades, humans tried to manage nature by removing what they didn’t understand. But Yellowstone taught us a humbling lesson — nature knows balance, if we let it.</p>
+
+            <p>And the effects reached even further. The changes brought scientists from across the world, eager to study this rare ecological recovery. Visitors came in record numbers to witness the rebirth of a legendary park. Communities around Yellowstone saw a surge in tourism and renewed economic energy — all because of a single, controversial decision to bring wolves home.</p>
+        </div>
+    </section>
+
+    <script src="viz7-main.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://unpkg.com/scrollama"></script>
+
+</body>
+</html>

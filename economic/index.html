@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Economic Impact Analysis | Enhanced Scrollytelling</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://unpkg.com/d3-sankey@0.12.3/dist/d3-sankey.min.js"></script>
+    <script src="https://unpkg.com/intersection-observer@0.12.0/intersection-observer.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="scrolly-container">
+        <header>
+            <h1>Economic Impact Analysis</h1>
+            <p class="subtitle">Exploring how different sectors contribute to our economy through jobs, income, and output.</p>
+        </header>
+        
+        <!-- Restructured scrollytelling layout -->
+        <div class="scrolly-wrapper">
+            <!-- Text column with sections that will scroll -->
+            <div class="scrolly-text-column">
+                <div class="scrolly-step" id="step-1">
+                    <h2>The Big Picture</h2>
+                    <p>Our economic analysis reveals a comprehensive view of how different sectors contribute to the overall economy, measured through key indicators like jobs, labor income, value added, and economic output.</p>
+                    
+                    <div class="metric">$22.09 Billion</div>
+                    <div class="metric-label">Total Economic Output</div>
+                    
+                    <div class="metric">247,300</div>
+                    <div class="metric-label">Total Jobs Supported</div>
+                    
+                    <p>The eight key sectors we analyzed show a diverse landscape of economic activity, with some sectors contributing disproportionately to different economic indicators.</p>
+                    
+                    <p>Let's explore the specific impacts of these sectors, from the largest contributors to those with more specialized roles in the economy.</p>
+                </div>
+                <div class="source">
+                    Source:
+                    <a href="https://www.nps.gov/subjects/socialscience/vse.htm" target="_blank">Link</a>
+                </div>
+                
+                <div class="scrolly-step" id="step-2">
+                    <h2>Lodging Leads the Way</h2>
+                    <p>The <span class="highlight">Lodging sector</span> stands as the dominant economic engine among all sectors analyzed.</p>
+                    
+                    <div class="metric">44.8%</div>
+                    <div class="metric-label">of Total Economic Output</div>
+                    
+                    <div class="metric">89,200</div>
+                    <div class="metric-label">Jobs Created</div>
+                    
+                    <p>With $9.9 billion in economic output, Lodging generates nearly half of the economic activity across all sectors. It also leads in job creation, accounting for 36% of all employment in the analyzed sectors.</p>
+                    
+                    <p>This demonstrates how travel and accommodation serve as foundational economic drivers, creating both direct spending and extensive employment opportunities.</p>
+                </div>
+                
+                <div class="scrolly-step" id="step-3">
+                    <h2>Food & Recreation Follow</h2>
+                    <p>The <span class="highlight">Restaurant</span> and <span class="highlight">Recreation Industries</span> sectors form the second tier of economic impact.</p>
+                    
+                    <div class="metric">$5.15 Billion</div>
+                    <div class="metric-label">Restaurant Economic Output (23.3%)</div>
+                    
+                    <div class="metric">$2.22 Billion</div>
+                    <div class="metric-label">Recreation Economic Output (10.0%)</div>
+                    
+                    <p>Together, these two sectors account for one-third of all economic output and over 41% of jobs (103,000 combined jobs), highlighting how visitor-facing services drive both spending and employment.</p>
+                    
+                    <p>The Restaurant sector creates more jobs per dollar of output than most other sectors, showing its role as an employment powerhouse in the economy.</p>
+                </div>
+                
+                <div class="scrolly-step" id="step-4">
+                    <h2>Supporting Sectors</h2>
+                    <p>While smaller in total impact, the remaining sectors provide critical supporting infrastructure for the overall economic ecosystem.</p>
+                    
+                    <div class="metric">$4.82 Billion</div>
+                    <div class="metric-label">Combined Output of Supporting Sectors</div>
+                    
+                    <div class="metric">55,100</div>
+                    <div class="metric-label">Combined Jobs in Supporting Sectors</div>
+                    
+                    <p>Transportation, Retail, Gas, Camping, and Groceries together represent 21.8% of total economic output. These sectors ensure visitors can travel, shop, and access essential services.</p>
+                    
+                    <p>The interconnected nature of these sectors shows how economic development requires a complete ecosystem of services supporting the major economic drivers.</p>
+                </div>
+                
+                <div class="scrolly-step" id="step-5">
+                    <h2>The Labor Picture</h2>
+                    <p>The distribution of labor income across sectors reveals interesting patterns in job quality and compensation.</p>
+                    
+                    <div class="metric">$8.84 Billion</div>
+                    <div class="metric-label">Total Labor Income</div>
+                    
+                    <p>The Lodging sector accounts for 45.2% of total labor income ($4 billion), closely matching its share of economic output.</p>
+                    
+                    <p>However, labor income as a percentage of total output varies significantly between sectors, from 45% for Lodging down to 22% for Retail, reflecting differences in labor intensity and wage levels across the economy.</p>
+                    
+                    <p>These variations highlight the complex relationship between economic activity, job creation, and income generation across different sectors.</p>
+                </div>
+            </div>
+            
+            <!-- Visualization column with fixed Sankey diagram -->
+            <div class="scrolly-viz-column">
+                <div class="scrolly-viz">
+                    <div class="viz-container" id="sankey-container">
+                        <div class="viz-status">Initializing visualization...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Added: Bubble Chart Section -->
+        <!--iv class="bubble-chart-section">
+            <h2>Interactive Economic Component Analysis</h2>
+            <p class="section-description">This interactive bubble chart shows how visitor spending flows through different economic sectors to create total economic output. Hover over any bubble to see details and observe cross-relationships with the Sankey diagram above.</p>
+            <div class="bubble-chart-container" id="bubble-container"></div>
+            <div class="chart-legend">
+                <p><span class="legend-title">How to use:</span> Hover over any sector bubble to see its economic impact details and highlight its connections in the Sankey diagram above.</p>
+            </div>
+        </div>
+    </div-->
+    
+    <div class="sankey-tooltip" id="tooltip"></div>
+    
+    <script src="economic.js"></script>
+    <!--script src="bubble-chart.js"></script-->
+</body>
+</html>

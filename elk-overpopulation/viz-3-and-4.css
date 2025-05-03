@@ -1,0 +1,202 @@
+/*Stuff for Viz 3*/
+
+.viz-text-box {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    font-size: 18px;
+    color: #333333;
+    max-width: 700px;
+    margin: 2rem auto;
+    transition: all 0.3s ease;
+    line-height: 1.7;
+    border-left: 5px solid #446b4d;
+}
+
+.scrolly-wrapper{
+    display: flex;
+    justify-content: center;
+}
+
+.scrolly-viz-column{
+    max-width: 800px;
+}
+
+.elk-intro {
+    padding: 4rem 0;
+    display: flex;
+    justify-content: center;
+}
+
+
+.viz-button {
+    background-color: #aa6c49;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.viz-button:hover {
+    background-color: #cb7d47;
+}
+
+#elk-scroll {
+    width: 100%;
+}
+
+#elk-sticky-wrap {
+    height: 300vh;
+    position: relative;
+}
+
+#elk-sticky {
+    position: sticky;
+    /* top: 10vh; */
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+}
+
+#elk-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#elk-growing {
+    height: 100px;
+    transition: all 0.5s ease;
+}
+
+#elk-label {
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 16px;
+    transition: opacity 0.5s ease;
+    color: #2f4734;
+    font-family: 'Georgia', serif;
+}
+
+#elk-message-box {
+    min-height: 120px;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+#elk-message {
+    margin: 0;
+    font-size: 18px;
+}
+
+/* Stuff for Viz 4*/
+
+#visualization-4-container {
+    width: 150vw;
+    margin: 0;
+    padding: 0;
+    display: block;
+    background-color: white;
+}
+
+#viz4-sticky {
+    position: sticky;
+    top: 10vh;
+    height: 80vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    width: 100vw;
+    box-sizing: border-box;
+    background: none;
+}
+
+#viz4-message {
+    width: 30%;
+    max-width: 420px;
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    font-family: 'Georgia', serif;
+    font-size: 18px;
+    line-height: 1.7;
+    text-align: center;
+    transition: opacity 0.5s ease;
+    color: #2f4734;
+}
+
+#viz4-message.stage-0 {
+    border-left: 6px solid #5b8c5a;
+}
+#viz4-message.stage-1 {
+    border-left: 6px solid #b07746;
+}
+#viz4-message.stage-2 {
+    border-left: 6px solid #803e3e;
+}
+
+#viz4-sticky-wrap {
+    height: 300vh;
+    position: relative;
+    background-color: #e8f4e5;
+}
+
+/* svg {
+    width: 70%;
+    height: 100%;
+} */
+
+/*Formatting for storytelling between visualizations*/
+
+.between-section {
+    padding: 4rem 2rem;
+    margin: 0 auto;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.between-section h2 {
+    font-size: 2.5rem;
+    color: #355e3b;
+    font-weight: bold;
+}
+.between-section h3 {
+    font-size: 1.6rem;
+    color: #6a5d2f;
+    font-style: italic;
+}
+.between-section p {
+    font-size: 1.25rem;
+    color: #5c4033;
+    line-height: 1.8;
+}
+
+
+.scrolly-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.scrolly-viz-column {
+    max-width: 100%;
+    flex: 1;
+}
+
+.scrolly-viz {
+    width: 100%;
+    height: 300vh;
+    position: relative;
+    padding: 20px;
+}
+
+#elk-container {
+    width: 100%;
+}

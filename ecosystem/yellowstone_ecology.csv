@@ -1,0 +1,41 @@
+Indicator,Year,Value,Unit,Location,Note
+WillowHeight,1995,50,cm,Blacktail Deer Creek,Pre-wolf reintroduction
+WillowHeight,2017,200,cm,Blacktail Deer Creek,Post-wolf reintroduction
+WillowHeight,2020,350,cm,Blacktail Deer Creek,Continued recovery post-wolf reintroduction
+WillowCanopyCover,1995,0,%,West Fork Blacktail Deer Creek,Pre-wolf reintroduction
+WillowCanopyCover,2017,43,%,West Fork Blacktail Deer Creek,Post-wolf reintroduction
+WillowCanopyCover,1995,0,%,East Fork Blacktail Deer Creek,Pre-wolf reintroduction
+WillowCanopyCover,2017,93,%,East Fork Blacktail Deer Creek,Post-wolf reintroduction
+WillowCrownVolume,2001,100,index,Northern Range,Baseline set in 2001 post-wolf reintroduction
+WillowCrownVolume,2020,1500,index,Northern Range,1500% increase since 2001 post-wolf reintroduction
+BeaverColonies,1995,1,count,Northern Range,Pre-wolf reintroduction
+BeaverColonies,2001,1,count,Yellowstone,Minimal recovery post-wolf reintroduction
+BeaverColonies,2007,12,count,Northern Range,Early recovery post-wolf reintroduction
+BeaverColonies,2011,9,count,Yellowstone,Continued recovery post-wolf reintroduction
+BeaverColonies,2015,19,count,Northern Range,Post-wolf reintroduction
+BeaverColonies,2020,25,count,Northern Range,Stable population post-wolf reintroduction
+AspenBrowsing,1998,100,%,Northern Range,All aspen leaders browsed pre-wolf reintroduction
+AspenBrowsing,2010,24,%,Riparian w/ logs,Lowest browsing rate post-wolf reintroduction
+AspenBrowsing,2012,44,%,Northern Range,Average browsing rate post-wolf reintroduction
+AspenHeight,1998,50,cm,Northern Range,Suppressed by elk pre-wolf reintroduction
+AspenHeight,2010,265,cm,Northern Range,Five tallest young aspen post-wolf reintroduction
+AspenHeight,2020,350,cm,Northern Range,Tallest young aspen post-wolf reintroduction
+CottonwoodRecruitment,2001,0,trees,Soda Butte/Lamar,No recruitment pre-wolf reintroduction
+CottonwoodRecruitment,2010,156,trees,Soda Butte/Lamar,Recruitment post-wolf reintroduction
+CoyotePopulation,1995,100,%,Yellowstone,Pre-wolf reintroduction
+CoyotePopulation,1997,50,%,Yellowstone,Two years post-wolf reintroduction
+FoxPopulation,1995,100,%,Yellowstone,Pre-wolf reintroduction
+FoxPopulation,1997,150,%,Yellowstone,Increase post-wolf reintroduction
+ElkPopulation,1995,16791,count,Northern Range,Pre-wolf reintroduction
+ElkPopulation,2010,6070,count,Northern Range,Post-wolf reintroduction
+BisonCount,1995,708,count,Northern Range,Pre-wolf reintroduction
+BisonCount,2010,1385,count,Northern Range,Post-wolf reintroduction
+PronghornFawnSurvival,1995,10,%,Yellowstone,Pre-wolf reintroduction
+PronghornFawnSurvival,2005,50,%,Yellowstone,Post-wolf reintroduction
+StreamErosion,1995,8,rating,Yellowstone,High erosion risk pre-wolf reintroduction
+StreamErosion,2020,2,rating,Yellowstone,Low erosion risk post-wolf reintroduction
+SongbirdDiversity,1995,2,index,Yellowstone,Low diversity pre-wolf reintroduction
+SongbirdDiversity,2020,8,index,Yellowstone,High diversity post-wolf reintroduction
+WolfPopulation,1995,0,count,Yellowstone,Before wolf reintroduction
+WolfPopulation,2003,174,count,Northern Range,Peak population post-wolf reintroduction
+WolfPopulation,2023,124,count,Yellowstone,Recent population estimate

@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Howling Success: The Wolves that saved Yellowstone </title>
+    <!-- <script src="elk-overpopulation/visualization-3.js"></script> -->
+    <script src="unbalanced-ecosystem/visualization-4.js"></script>
+    <link rel="stylesheet" href="elk-overpopulation/viz-3-and-4.css">
+    <link rel="stylesheet" href="wolf-extinction/style-vis-2.css">
+    <link rel="stylesheet" href="pre-extinction/style-vis-1.css">
+    <style>
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color: var(--background);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        h1 {
+            color: #676437;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .visualization {
+            height: 300px;
+            background-color: #e8f4e5;
+            border: 1px dashed #676437;
+            border-radius: 8px;
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: black;
+        }
+        .intro-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            text-align: center;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .highlight-box {
+            border-left: 8px solid #676437;
+            padding: 20px 30px;
+            margin: 30px auto;
+            max-width: 1000px;
+            background-color: #f9f9f9;
+        }
+        
+        .highlight-box-title {
+            font-weight: 700;
+            color: var(--dark-green);
+            margin-bottom: 10px;
+        }
+        
+        .author {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        .header-image {
+            display: block;
+            margin: 20px auto;
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px; /* optional, for rounded edges */
+        }
+    </style>
+
+</head>
+<body>
+    <header>
+        <h1>A Howling Success: The Wolves that saved Yellowstone</h1>
+        <p>A tale of ecological balance, disruption, and restoration</p>
+        <img src="wolf.jpeg" class="header-image">
+    </header>
+    
+    <div class="">
+        <div class="between-section" style="margin-top: -30px;">
+            <h2>Yellowstone: A Natural Wonder</h2>
+            <p>Established in 1872, Yellowstone became the first national park in the world — a place where nature’s beauty, power, and biodiversity were preserved in one place. Featuring towering geysers, crystalline rivers, and rolling meadows, Yellowstone became one of the most ecologically diverse regions in North America.</p>
+          
+            <p>Before 1900, Yellowstone teemed with life. Herds of elk and bison roamed freely, while predators like wolves and bears maintained the natural balance. Beavers shaped river systems, birds filled the skies, and forests were lush. Each species played a vital role, creating a beautiful ecosystem.</p>
+        </div>
+    
+        <div id="visualization-1-container">
+        <div id="visualization-1-title">
+            <h2 id="mainTitle">Ecological Diversity of Yellowstone</h2>
+            <div id="instructions-for-vis-1">Click any animal to see their indivual sitings! <br>And if you want to get back to the start, just hit the Reset button</div>
+        </div>
+            <div id="visualization-1">
+                <div id="vis-1-key">
+                    <div class='legend-title'>
+                        <div id='text'>Animals</div>
+                        <button id='reset-bubbles' class='reset-button'>Reset</button>
+                    </div>
+                </div>
+                <svg id="vis-1"></svg>
+            </div>        
+        </div>
+    </div>
+    
+    <div class="">
+        <div class="between-section" style="margin-top: -30px;">
+            <h2>The War Against Wolves</h2>
+            <p>Despite Yellowstone’s natural beauty, early settlers and ranchers saw predators like wolves as threats. As people moved into the surrounding areas with their sheep and cattle, tensions with Yellowstone’s top predators grew.</p>
+          
+            <p>Wolves were blamed for livestock losses and painted as villains in frontier folklore. Fear and frustration spread quickly, and by the late 1800s and early 1900s, public sentiment had turned against them. Government sponsored eradication programs began, offering bounties and sending hunters into the park with the mission of eliminating the wolf population entirely.</p>
+        </div>
+    
+    
+        <div id="visualization-2" onload="visualization_2()">
+    
+            <svg id="vis-2"></svg>
+    
+            <div id="year-message">
+                <div id="vis-2-title">Extinction of Wolves</div>
+                <div id="year-label">Year: 1914</div>
+                <p id="message-text"></p>
+                <p id="message-source"></p>
+            </div>
+    
+    
+        </div>
+    </div>
+    
+    <div class="">
+
+        <div class="between-section">
+            <h2>Unseen Consequences, the Overpoplation of Elk</h2>
+            <p>By 1926, every last wolf in Yellowstone had been eliminated. Local ranchers and hunters were ecstatic, believing they had removed a dangerous nuisance. But what they didn’t realize was that wolves weren’t just any random predator, they were silently maintaining balance across the entire ecosystem.</p>
+          
+            <p>Without wolves, elk populations surged. These herbivores were now free to roam and graze without consequence. At first, this didn’t appear to be a problem. Grassy valleys and herds of animals could be seen as normal, just without a major predator to attack. But  beneath the surface, Yellowstone was beginning to unravel.</p>
+        </div>
+             
+          
+        <!-- Viz 3 -->
+    
+        <div class="scrolly-wrapper" style="margin-top: -20px;">
+            <div class="scrolly-viz-column">
+                <div class="scrolly-viz" id="elk-container">
+                    <div id="elk-scroll">
+                        <div id="elk-sticky-wrap">
+                            <div id="elk-sticky">
+                                <div id="elk-column">
+                                    <img id="elk-growing" src="elk-overpopulation/images/elk.png" style="height: 100px;" />
+                                    <p id="elk-label" style="opacity: 1;">Elk at carrying capacity</p>
+                                </div>
+                                <div id="elk-message-box" class="viz-text-box" style="opacity: 1;">
+                                    <p id="elk-message"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+
+    <div class="">
+        <div class="between-section" style="margin-top: -30px;">
+            <h2>The Ripple Effect on Yellowstone's Ecosystem</h2>
+            <p>In a balanced Yellowstone, every species plays its role in maintaining the health of the ecosystem. Elk graze across open meadows, numbers  held in check by natural predators like wolves. This balance allows young aspen and willow trees to grow undisturbed, forming  groves that provided shelter and food for other animals.</p>
+    
+            <p>Beavers rely on these trees to build dams, which slow river flow, deepen streams, and create ponds. These aquatic habitats became havens for amphibians, fish, and other wetland life. Healthy streams and tree cover attract songbirds, who nest in the branches and forage among the foliage.</p>
+    
+            <p>Everything is connected: the elk to the trees, the trees to the beavers, the beavers to the streams, and the streams to the birds. When balance is preserved, Yellowstone thrives.</p>
+    
+             <p>Just taking out one piece can have large consequences, something shown at the peak of elk overpopulation in the late 1980's</p>
+        </div>
+          
+          
+        <!-- Viz 4 -->
+    
+          <section class="elk-intro">
+            <div id="visualization-4-container"></div>
+          </section>
+    
+        <!-- Text for Viz 5 -->
+    
+        <div class="between-section">
+            <h2>The Call for Change, Bring Back the Wolves!</h2>
+            <p>As the ecological decline in Yellowstone worsened, scientists and conservationists began to connect the dots. The missing wolves that were once considered pests were now understood as critical to the ecosystem's stability. Their absence had set off a chain reaction of overgrazing, vegetation loss, and species decline.</p>
+          
+            <p>In the early 1990s, decades after the last wolf had vanished, a restoration plan was approved. In 1995 and 1996, 31 gray wolves from Canada were captured and carefully reintroduced into Yellowstone. They were temporarily held in acclimation pens before being released into the wild. The hope was to restore natural predator-prey dynamics and allow the ecosystem to heal itself.</p>
+          
+            <p>This marked one of the most ambitious wildlife reintroductions in history. It wasn’t just about restoring a species, it was about repairing Yellowstone</p>
+        </div>
+    </div>
+
+
+    
+    <div class="">
+        <div class=""></div>
+      
+         <div id="visualization-5">
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+            <meta charset="UTF-8" />
+            <title>Yellowstone Wolf Map (Fixed Bounds)</title>
+            <meta name="viewport" content="width=device-width,initial-scale=1" />
+            <link
+                rel="stylesheet"
+                href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+            />
+            <link rel="stylesheet" href="wolf-reintroduction/style.css" />
+
+            </head>
+            <body>
+            <div class="map-container">
+            <div id="map"></div>
+                
+            <div class="overlay-panel">
+                <div>
+                <strong>Year:</strong> <span id="current-year">1995</span>
+                <button id="play-toggle">Play</button>
+                </div>
+                <input id="year-slider" type="range" min="0" max="0" step="1" />
+            </div>
+                
+                <div class="legend">
+                <h3>Wolf Re-population</h3>
+                <p id="legend-year">Showing data for 1995</p>
+                <p id="legend-packs">Total packs: 1</p>
+                <p id="legend-wolves">Total wolves: ~5</p>
+                </div>
+                <svg style="display: none;">
+                <symbol id="paw-icon" viewBox="0 0 1085.000000 1280.000000" preserveAspectRatio="xMidYMid meet">
+                <metadata>
+                Created by potrace 1.15, written by Peter Selinger 2001-2017
+                </metadata>
+                <g transform="translate(0.000000,1280.000000) scale(0.100000,-0.100000)"
+                stroke="none">
+                <path d="M4016 12755 c4 -16 107 -408 230 -870 l222 -840 -28 -40 c-66 -96
+                -136 -273 -159 -402 -6 -32 -15 -116 -20 -188 -8 -115 -6 -148 15 -290 84
+                -567 210 -1001 421 -1448 35 -76 62 -141 59 -144 -8 -9 43 -97 144 -248 245
+                -364 526 -654 805 -830 309 -194 586 -255 824 -180 634 200 710 1343 166 2473
+                -348 722 -863 1279 -1365 1476 -158 62 -369 159 -384 175 -8 9 -218 320 -466
+                691 -249 371 -457 680 -462 685 -6 6 -7 -1 -2 -20z"/>
+                <path d="M1452 11660 c3 -8 22 -67 42 -130 21 -63 114 -349 208 -635 93 -286
+                192 -587 218 -670 l49 -150 -43 -170 c-24 -93 -53 -201 -65 -240 -45 -149 -55
+                -236 -55 -490 0 -254 10 -350 60 -580 101 -469 310 -952 594 -1375 496 -741
+                1164 -1150 1624 -996 269 91 436 332 508 736 17 98 17 492 -1 620 -28 209 -91
+                470 -161 673 -49 142 -77 207 -95 221 -8 6 -37 63 -65 125 -60 136 -125 260
+                -228 433 -155 260 -314 461 -567 714 -148 148 -215 207 -305 269 -130 89 -268
+                157 -385 190 -85 25 -257 50 -279 42 -7 -3 -52 26 -99 64 l-86 69 -427 637
+                c-235 351 -431 643 -437 648 -7 7 -8 5 -5 -5z"/>
+                <path d="M7980 11278 c-19 -5 -36 -11 -38 -12 -1 -2 32 -54 73 -116 210 -314
+                376 -773 429 -1185 22 -164 21 -175 -7 -175 -57 0 -189 -59 -272 -120 -300
+                -223 -510 -680 -587 -1280 -19 -154 -16 -609 5 -773 113 -852 502 -1472 967
+                -1539 495 -73 931 517 1035 1399 20 171 20 575 0 746 -41 347 -122 636 -256
+                916 -57 120 -69 153 -69 195 0 70 -25 217 -60 356 -144 568 -528 1215 -880
+                1477 -118 89 -260 135 -340 111z"/>
+                <path d="M123 7451 c-69 -43 -110 -155 -120 -326 -27 -514 373 -1415 819
+                -1840 87 -84 99 -99 147 -200 133 -279 298 -504 560 -765 256 -255 536 -458
+                836 -605 603 -297 1141 -309 1415 -33 152 153 208 406 150 687 -103 509 -527
+                1080 -1115 1503 -356 256 -758 423 -1125 468 -256 31 -483 -19 -649 -142 l-53
+                -40 -75 73 c-164 161 -351 399 -472 601 -111 186 -271 553 -271 622 0 21 -8
+                20 -47 -3z"/>
+                <path d="M6120 6183 c-319 -23 -648 -174 -877 -402 -158 -157 -257 -310 -292
+                -452 -65 -263 -88 -550 -72 -894 24 -498 24 -495 7 -592 -36 -207 -140 -454
+                -262 -623 -33 -46 -96 -114 -152 -162 -162 -142 -334 -343 -465 -543 -196
+                -302 -257 -487 -272 -830 -16 -340 82 -674 286 -981 98 -146 294 -344 435
+                -437 175 -116 382 -202 589 -244 73 -15 132 -18 315 -16 452 3 586 53 865 324
+                164 159 226 238 365 462 58 92 146 223 197 292 103 137 285 331 402 429 227
+                189 510 327 821 400 222 53 311 61 655 61 288 -1 343 -3 555 -29 181 -22 257
+                -27 332 -22 321 20 578 145 844 410 95 95 150 160 199 234 351 539 338 1227
+                -36 1788 -83 124 -280 329 -391 408 -165 116 -335 196 -518 245 -209 55 -241
+                56 -505 10 -286 -50 -385 -59 -551 -48 -265 17 -530 108 -744 255 -46 31 -252
+                211 -459 400 -373 342 -375 344 -485 398 -180 89 -348 137 -546 155 -112 11
+                -145 11 -240 4z"/>
+                </g>
+                </symbol>
+                </svg>
+
+
+            </div>
+
+            <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+            <script src="https://d3js.org/d3.v7.min.js"></script>
+            <script defer src="wolf-reintroduction/reintroduction.js"></script>
+        </div>
+    </div>
+     <div>
+    </div>
+    
+    <div class="">
+         <div class="intro-text">
+            When wolves were reintroduced to Yellowstone in 1995, it wasn't just about bringing back an animal that had been missing—it was about restoring balance. Wildlife experts brought in wolves from Canada and carefully released them into the park after a short period of adjustment in holding pens. This gave them time to get used to their new home before venturing out.
+        </div>
+        
+        <div class="highlight-box">
+            <div class="highlight-box-title">What happened next was amazing:</div>
+            Elk, which had grown in number without any natural predators, suddenly started behaving differently. They stopped overgrazing certain areas, which gave trees like aspens and willows a chance to grow back. This allowed other animals—like beavers and birds—to return too. It's a great example of how one species can affect an entire ecosystem.
+        </div>
+        <div id="visualization-6"></div>
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Reintroduction of Wolves in Yellowstone</title>
+            <link rel="stylesheet" href="population-shift/viz6-style.css">
+        </head>
+        <body>
+            <section class="cover">
+                <h1>The Reintroduction of Wolves and the First Signs of Recovery</h1>
+            </section>
+            <div class="main-container">
+                <!-- Left: Continuous Story -->
+                <div class="story-column">
+                    <div class="continuous-story">
+                        
+                        <!-- 1995 Section (invisible marker) -->
+                        <div class="year-marker" data-year="1995"></div>
+                        <p>In 1995, Yellowstone National Park began one of its most ambitious and transformative projects: the reintroduction of wolves. After nearly 70 years of wolf absence, the park's ecosystem had drastically changed. Without wolves to control them, elk populations had exploded, leading to significant overgrazing, especially along riverbanks. This unchecked grazing had severely damaged riparian habitats, weakening riverbanks and preventing the regrowth of young willow, aspen, and cottonwood trees. These changes had a ripple effect throughout the park's ecosystem, affecting a variety of plant and animal species that relied on these habitats.</p>
+                        
+                        <p>Recognizing the urgent need to restore balance, scientists and wildlife managers planned the return of wolves to Yellowstone. The idea was to bring back an apex predator to control the overabundant elk population and help restore the park's ecological health. The process began with selecting wolves from healthy, robust packs in Alberta, Canada. These wolves were carefully captured, transported, and then placed into large acclimation pens within Yellowstone, particularly in areas like Lamar Valley. These pens were crucial to the wolves' gradual adaptation to the new environment while minimizing human interaction.</p>
+                        
+                        <!-- 2003 Section (invisible marker) -->
+                        <div class="year-marker" data-year="2003"></div>
+                        <p>For several weeks, the wolves remained in the pens, giving them time to acclimate to their new surroundings. The pens allowed them to bond with each other, form pack structures, and familiarize themselves with the park's sights, sounds, and smells. During this time, scientists closely monitored their behavior, health, and interactions. It was essential that the wolves retained their wild instincts, so the acclimation process was handled carefully and respectfully. By spring 1995, the pens were opened, and the wolves were released into the park's vast wilderness.</p>
+        
+                        <p>The reintroduction of wolves began to show immediate and profound effects on the park's ecosystem. One of the most significant changes was seen in the elk population. Without wolves, the elk had grazed heavily, especially along riverbanks, where they stripped young trees of their leaves and bark. This overgrazing had contributed to habitat degradation, making it harder for other species to survive. However, as wolves began hunting elk, the balance was restored. The elk population decreased, and the pressure on vegetation diminished.</p>              
+                        
+                        <!-- 2013 Section (invisible marker) -->
+                        <div class="year-marker" data-year="2013"></div>
+                        <p>In addition to direct predation, the presence of wolves altered the behavior of elk in remarkable ways. Elk, which had once grazed freely in the open areas near riverbanks, began to avoid these vulnerable areas where they were at risk of being hunted. This behavioral shift, often referred to as the "landscape of fear," had cascading effects on the park's ecosystem. The elk were no longer overgrazing along riparian zones, and the vegetation along rivers began to recover.</p>
+        
+                        <p>The regrowth of plants like willow, aspen, and cottonwood along riverbanks helped stabilize the soil, reducing erosion and improving water quality. This recovery of vegetation also provided vital habitat for other species, including beavers, birds, and small mammals. Beavers, in particular, benefitted from the regrowth of willows, as they rely on these trees for food and building materials. The return of wolves had begun to restore the park's biodiversity, improving conditions for many species.</p>
+                        
+                        <!-- 2023 Section (invisible marker) -->
+                        <div class="year-marker" data-year="2023"></div>
+                        <p>The impact of the wolves also extended to other herbivore populations. With elk numbers reduced, there was less pressure on other plant species. The overall biodiversity of Yellowstone began to improve, as more species of plants and animals were able to thrive. The healthy functioning of the ecosystem became evident, as the park's forests, rivers, and meadows began to show signs of recovery from years of overgrazing and habitat degradation.</p>
+        
+                        <p>The reintroduction of wolves demonstrated the crucial role that apex predators play in maintaining the balance of an ecosystem. Wolves, by controlling prey populations and influencing animal behavior, helped restore Yellowstone's ecosystem to a more natural state. The recovery of vegetation, the stabilization of riverbanks, and the return of biodiversity were all tangible signs of the success of the wolf reintroduction. Yellowstone was once again a more balanced and thriving ecosystem, thanks to the return of its most iconic predator.</p>
+                        <div class="year-marker" data-year="end"></div>
+                    </div>
+                </div>
+
+                <!-- Right: Year Card and Chart -->
+                <aside class="sticky-chart1">
+                    <div class="sticky-content1"></div>
+                        <div id="year-card">
+                            <!-- Year info populated by JS -->
+                        </div>
+                        <div id="population-chart">
+                            <!-- Chart populated by D3 -->
+                        </div>
+                </aside>
+
+            <script defer src="population-shift/viz6-main.js"></script>
+            <script src="https://d3js.org/d3.v7.min.js"></script>
+        </div>
+    </div>
+    <div></div>
+    
+    <div class="section">
+        <!--<div class="author"></div>-->
+        
+        <div id="visualization-7"></div>
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>How Wolves Transformed Yellowstone's Ecosystem</title>
+            <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+            <link rel="stylesheet" href="ecosystem/viz7-style.css">  
+        </head>
+        <body>
+            <header>
+                <div class="container1">
+                    <h1>How Wolves Revived Yellowstone's Ecosystem</h1>
+                </div>
+            </header>
+        
+            <section id="intro1">
+                <div class="container1">
+                    <p>With wolves back in Yellowstone, the balance of life began to shift almost immediately. Elk, which had long dominated open meadows and riverbanks without any natural predators, suddenly had to move more cautiously. The once overgrazed valleys were given room to heal. Trees that had stopped growing — aspen, willow, and cottonwood — began to regenerate. As the plants came back, so did the animals that depended on them. Beavers returned and built dams, creating habitats for fish and birds. Songbirds reappeared. Coyotes declined, making way for small mammal populations to recover. Even the rivers changed course as vegetation stabilized soil and prevented erosion.</p>
+        
+                    <p>This was more than a predator-prey relationship — it was a chain reaction that transformed the entire ecosystem. One species, reintroduced with care and purpose, had unknowingly reawakened Yellowstone.</p>
+                </div>
+            </section>
+
+            <section id="scrolly">
+                <div class="sticky-chart">
+                    <div id="chart1"></div>
+                </div>
+                <div class="steps">
+                    <div class="step1" data-step="elk">
+                        <div class="step-content1">
+                            <h2>1995: Ecosystem in Crisis</h2>
+                            <p>Without wolves, elk overgrazed the landscape:</p>
+                            <div class="stats">
+                                <div class="stat">
+                                    <div class="value">16,791</div>
+                                    <div class="label">Elk</div>
+                                </div>
+                                <div class="stat">
+                                    <div class="value">50cm</div>
+                                    <div class="label">Aspen Height</div>
+                                </div>
+                                <div class="stat">
+                                    <div class="value">0</div>
+                                    <div class="label">Young Cottonwoods</div>
+                                </div>
+                            </div>
+                            <p class="card-note">
+                                <em>Without wolves, elk browsed freely, stripping vegetation and damaging riverbanks.</em>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="step1" data-step="wolves">
+                        <div class="step-content1">
+                            <h2>1995–2003: Wolves Return</h2>
+                            <p>Wolves were reintroduced and their numbers grew to 174 by 2003. Elk numbers began to fall and their behavior changed.</p>
+                            <div class="stats">
+                                <div class="stat highlight">
+                                    <div class="value">174</div>
+                                    <div class="label">Wolves by 2003</div>
+                                </div>
+                                <div class="stat">
+                                    <div class="value">6,070</div>
+                                    <div class="label">Elk by 2010</div>
+                                </div>
+                            </div>
+                            <p class="card-note">
+                                <em>As apex predators, wolves don’t just hunt - they shape behavior, create fear zones, and restore balance.</em>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="step1" data-step="vegetation">
+                        <div class="step-content1">
+                            <h2>2010: Forests Recover</h2>
+                            <p>With less browsing pressure, aspen and willow heights increased dramatically. Cottonwood recruitment began for the first time in decades.</p>
+                            <div class="stats">
+                                <div class="stat">
+                                    <div class="value">265cm</div>
+                                    <div class="label">Aspen Height</div>
+                                </div>
+                                <div class="stat">
+                                    <div class="value">156</div>
+                                    <div class="label">Young Cottonwoods</div>
+                                </div>
+                                <div class="stat">
+                                    <div class="value">200cm</div>
+                                    <div class="label">Willow Height</div>
+                                </div>
+                            </div>
+                            <p class="card-note">
+                                <em>These trees are vital for nesting birds, bank stability, and beaver food. Their comeback is key to biodiversity.</em>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="step1" data-step="beaver">
+                        <div class="step-content1">
+                            <h2>2020: Biodiversity Returns</h2>
+                            <p>Beaver colonies increased, songbird diversity quadrupled, and stream erosion dropped by 75%.</p>
+                            <div class="stats">
+                                <div class="stat">
+                                    <div class="value">25</div>
+                                    <div class="label">Beaver Colonies</div>
+                                </div>
+                                <div class="stat">
+                                    <div class="value">8/10</div>
+                                    <div class="label">Songbird Diversity</div>
+                                </div>
+                                <div class="stat">
+                                    <div class="value">2/10</div>
+                                    <div class="label">Stream Erosion</div>
+                                </div>
+                            </div>
+                            <p class="card-note">
+                                <em>Beavers are engineers - their dams slow water, create wetlands, and support entire food webs.<br>
+                                    Songbirds are a sign of ecosystem health. Their diversity reflects recovery across the entire landscape.<br>
+                                    As plant roots stabilized soil, rivers ran clearer and straighter - erosion fell, and fish habitats improved.</em>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        
+            <section id="conclusion">
+                <div class="container1">
+                    <p>As the land reshaped itself, a deeper truth emerged: wolves were never the villains. Their presence was vital, their absence devastating. For decades, humans tried to manage nature by removing what they didn’t understand. But Yellowstone taught us a humbling lesson — nature knows balance, if we let it.</p>
+        
+                    <p>And the effects reached even further. The changes brought scientists from across the world, eager to study this rare ecological recovery. Visitors came in record numbers to witness the rebirth of a legendary park. Communities around Yellowstone saw a surge in tourism and renewed economic energy — all because of a single, controversial decision to bring wolves home.</p>
+                </div>
+            </section>
+
+            <script defer src="ecosystem/viz7-main.js"></script>
+            <script src="https://d3js.org/d3.v7.min.js"></script>
+            <script src="https://unpkg.com/scrollama"></script>
+        </div>
+    </div>
+    <div></div>
+
+
+
+
+
+    <div class="">
+        <div class=""></div>
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Economic Impact Analysis | Enhanced Scrollytelling</title>
+            <script src="https://d3js.org/d3.v7.min.js"></script>
+            <script src="https://unpkg.com/d3-sankey@0.12.3/dist/d3-sankey.min.js"></script>
+            <script src="https://unpkg.com/intersection-observer@0.12.0/intersection-observer.js"></script>
+            <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+            <link rel="stylesheet" href="economic/styles.css">
+        </head>
+        <body>
+            <div class="scrolly-container">
+                <header>
+                    <h1>Economic Impact Analysis</h1>
+                    <p class="subtitle">Exploring how different sectors contribute to our economy through jobs, income, and output.</p>
+                </header>
+                
+              
+                <div class="scrolly-wrapper">
+                 
+                    <div class="scrolly-text-column">
+                        <div class="scrolly-step" id="step-1">
+                            <h2>The Big Picture</h2>
+                            <p>Our economic analysis reveals a comprehensive view of how different sectors contribute to the overall economy, measured through key indicators like jobs, labor income, value added, and economic output.</p>
+                            <div class="source">
+                                Source:
+                                <a href="https://www.nps.gov/subjects/socialscience/vse.htm" target="_blank">Link</a>
+                            </div>
+                            
+                            <div class="metric">$22.09 Billion</div>
+                            <div class="metric-label">Total Economic Output</div>
+                            
+                            <div class="metric">247,300</div>
+                            <div class="metric-label">Total Jobs Supported</div>
+                            
+                            <p>The eight key sectors we analyzed show a diverse landscape of economic activity, with some sectors contributing disproportionately to different economic indicators.</p>
+                            
+                            <p>Let's explore the specific impacts of these sectors, from the largest contributors to those with more specialized roles in the economy.</p>
+                          
+                        </div>
+                       
+                        <div class="scrolly-step" id="step-2">
+                            <h2>Lodging Leads the Way</h2>
+                            <p>The <span class="highlight">Lodging sector</span> stands as the dominant economic engine among all sectors analyzed.</p>
+                            
+                            <div class="metric">44.8%</div>
+                            <div class="metric-label">of Total Economic Output</div>
+                            
+                            <div class="metric">89,200</div>
+                            <div class="metric-label">Jobs Created</div>
+                            
+                            <p>With $9.9 billion in economic output, Lodging generates nearly half of the economic activity across all sectors. It also leads in job creation, accounting for 36% of all employment in the analyzed sectors.</p>
+                            
+                            <p>This demonstrates how travel and accommodation serve as foundational economic drivers, creating both direct spending and extensive employment opportunities.</p>
+                        </div>
+                        
+                        <div class="scrolly-step" id="step-3">
+                            <h2>Food & Recreation Follow</h2>
+                            <p>The <span class="highlight">Restaurant</span> and <span class="highlight">Recreation Industries</span> sectors form the second tier of economic impact.</p>
+                            
+                            <div class="metric">$5.15 Billion</div>
+                            <div class="metric-label">Restaurant Economic Output (23.3%)</div>
+                            
+                            <div class="metric">$2.22 Billion</div>
+                            <div class="metric-label">Recreation Economic Output (10.0%)</div>
+                            
+                            <p>Together, these two sectors account for one-third of all economic output and over 41% of jobs (103,000 combined jobs), highlighting how visitor-facing services drive both spending and employment.</p>
+                            
+                            <p>The Restaurant sector creates more jobs per dollar of output than most other sectors, showing its role as an employment powerhouse in the economy.</p>
+                        </div>
+                        
+                        <div class="scrolly-step" id="step-4">
+                            <h2>Supporting Sectors</h2>
+                            <p>While smaller in total impact, the remaining sectors provide critical supporting infrastructure for the overall economic ecosystem.</p>
+                            
+                            <div class="metric">$4.82 Billion</div>
+                            <div class="metric-label">Combined Output of Supporting Sectors</div>
+                            
+                            <div class="metric">55,100</div>
+                            <div class="metric-label">Combined Jobs in Supporting Sectors</div>
+                            
+                            <p>Transportation, Retail, Gas, Camping, and Groceries together represent 21.8% of total economic output. These sectors ensure visitors can travel, shop, and access essential services.</p>
+                            
+                            <p>The interconnected nature of these sectors shows how economic development requires a complete ecosystem of services supporting the major economic drivers.</p>
+                        </div>
+                        
+                        <div class="scrolly-step" id="step-5">
+                            <h2>The Labor Picture</h2>
+                            <p>The distribution of labor income across sectors reveals interesting patterns in job quality and compensation.</p>
+                            
+                            <div class="metric">$8.84 Billion</div>
+                            <div class="metric-label">Total Labor Income</div>
+                            
+                            <p>The Lodging sector accounts for 45.2% of total labor income ($4 billion), closely matching its share of economic output.</p>
+                            
+                            <p>However, labor income as a percentage of total output varies significantly between sectors, from 45% for Lodging down to 22% for Retail, reflecting differences in labor intensity and wage levels across the economy.</p>
+                            
+                            <p>These variations highlight the complex relationship between economic activity, job creation, and income generation across different sectors.</p>
+                        </div>
+                    </div>
+                    
+       
+                    <div class="scrolly-viz-column">
+                        <div class="scrolly-viz">
+                            <div class="viz-container" id="sankey-container">
+                                <div class="viz-status">Initializing visualization...</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Added: Bubble Chart Section -->
+                <!--iv class="bubble-chart-section">
+                    <h2>Interactive Economic Component Analysis</h2>
+                    <p class="section-description">This interactive bubble chart shows how visitor spending flows through different economic sectors to create total economic output. Hover over any bubble to see details and observe cross-relationships with the Sankey diagram above.</p>
+                    <div class="bubble-chart-container" id="bubble-container"></div>
+                    <div class="chart-legend">
+                        <p><span class="legend-title">How to use:</span> Hover over any sector bubble to see its economic impact details and highlight its connections in the Sankey diagram above.</p>
+                    </div>
+                </div>
+            </div-->
+            
+            <div class="sankey-tooltip" id="tooltip_eco"></div>
+            
+            <script src="economic/economic.js"></script>
+            <!--script src="bubble-chart.js"></script-->
+        </body>
+        </html>
+    
+    </div>
+     <div class="">
+         <div class=""></div>
+         <!--p>As you can see, the reintroduction of wolves has significantly impacted Yellowstone and the people that work there.</p>    
+         <p>At this moment the wolves are thriving in yellowstone, as seen below.</p-->    
+         <div id="visualization-9">
+         </div>
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8" />
+                <title>Yellowstone Wolf Pack Territories</title>
+                <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+            </head>
+            <style>
+                body {
+                font-family: sans-serif;
+                margin: 0;
+                text-align: center;
+                background-color: #f5f5f5;
+                }
+
+                h2 {
+                margin: 15px 0;
+                color: #333;
+                }
+
+                .container {
+                display: flex;
+                height: 90vh;
+                width: 100%;
+                max-width: 1400px;
+                margin: 0 auto;
+                }
+
+                #map-pack {
+                flex: 3;
+                height: 100%;
+                border-radius: 8px;
+                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+                }
+
+                #legend {
+                flex: 1;
+                padding: 20px;
+                background-color: white;
+                border-radius: 8px;
+                margin-left: 15px;
+                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+                text-align: left;
+                overflow-y: auto;
+                }
+
+                #legend h3 {
+                margin-top: 0;
+                padding-bottom: 10px;
+                border-bottom: 1px solid #eee;
+                color: #333;
+                }
+
+                .legend-item {
+                display: flex;
+                align-items: center;
+                margin-bottom: 10px;
+                padding: 5px;
+                border-radius: 4px;
+                cursor: pointer;
+                transition: background-color 0.2s, transform 0.1s;
+                }
+
+                .legend-item:hover {
+                background-color: #f0f0f0;
+                transform: translateX(2px);
+                }
+
+                .color-box {
+                width: 20px;
+                height: 20px;
+                margin-right: 10px;
+                border: 1px solid #333;
+                }
+
+                .pack-name {
+                font-size: 14px;
+                }
+
+                .legend-item-active {
+                background-color: #e6f2ff;
+                font-weight: bold;
+                box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+                }
+
+                .legend-item-inactive {
+                opacity: 0.5;
+                }
+
+                @media (max-width: 768px) {
+                .container {
+                    flex-direction: column;
+                }
+
+                #map-pack {
+                    height: 70vh;
+                }
+
+                #legend {
+                    margin-left: 0;
+                    margin-top: 15px;
+                }
+                }
+            </style>
+            <body>
+            <h2>Yellowstone Wolf Pack Territories (2023)</h2>
+            <div class="container">
+                    <div id="map-pack"></div>
+                    <div id="legend">
+                        <div id="legend-content"></div>
+                    </div>
+                </div> 
+            <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+            <script src="https://d3js.org/d3.v7.min.js"></script>
+            <script defer src="wolf-pack/territories.js"></script>
+            </html>
+         </div>
+    </div>
+    <div class="section">
+        <div class="intro-text">
+            Today, Yellowstone's wolves continue to thrive, with approximately 100 wolves in around 10 packs roaming the park. These packs are monitored by park biologists, providing valuable data for researchers and conservationists. Each pack has unique characteristics and a defined territory, contributing to a complex and dynamic predator-prey balance.
+        </div>
+        
+        <div class="highlight-box">
+            <div class="highlight-box-title">Wolf Facts:</div>
+            Wolves can travel up to 30 miles a day while hunting, and their howls can be heard from over 6 miles away. The Junction Butte Pack is one of the most famous, often seen near park roads and extensively studied by wildlife watchers and researchers.
+        </div>
+        
+        <div class="intro-text">
+            Despite their ecological benefits, wolves still face public misconceptions and political challenges. Conflicts with livestock outside the park and varying state policies on wolf management continue to affect their long-term conservation. While Yellowstone has shown that wolves can coexist with people and play a vital ecological role, changing their reputation remains an ongoing effort.
+        </div>
+        
+      
+    </div>
+    
+    <div class="">
+        <div class=""></div>
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Wolf Attitudes - Scrollytelling Experience</title>
+            <link rel="stylesheet" href="sentiment/styles.css">
+            <style>
+              
+                #quiz-container {
+                    background-color: #f9f9f9;
+                    border-radius: 8px;
+                    padding: 2rem;
+                    margin: 4rem auto;
+                    max-width: 700px;
+                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                }
+                
+                .quiz-question {
+                    margin-bottom: 1.5rem;
+                }
+                
+                .question-text {
+                    font-weight: bold;
+                    margin-bottom: 1rem;
+                }
+                
+                .options-list {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.5rem;
+                }
+                
+                .option-button {
+                    display: block;
+                    width: 100%;
+                    padding: 0.8rem;
+                    margin: 0.5rem 0;
+                    background-color: #f8f6f2;
+                    border: 1px solid #A7A58E;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    transition: all 0.2s;
+                    text-align: left;
+                }
+                
+                .option-button:hover {
+                    background-color: #e6e2d9;
+                }
+                
+                .progress-container {
+                    width: 100%;
+                    height: 8px;
+                    background-color: #e6e2d9;
+                    border-radius: 4px;
+                    margin-top: 2rem;
+                }
+                
+                .progress-fill {
+                    height: 100%;
+                    background-color: #3B6D3A;
+                    border-radius: 4px;
+                    transition: width 0.5s ease;
+                }
+                
+                .result-container {
+                    text-align: center;
+                    padding: 1rem;
+                }
+                
+                .score-display {
+                    font-size: 3rem;
+                    font-weight: bold;
+                    color: #916937;
+                    margin: 1rem 0;
+                }
+                
+                .share-section {
+                    margin-top: 1.5rem;
+                }
+                
+                .share-buttons {
+                    display: flex;
+                    justify-content: center;
+                    gap: 1rem;
+                }
+                
+                .share-button {
+                    padding: 0.5rem 1rem;
+                    border: none;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    color: white;
+                }
+                
+                .facebook-button {
+                    background-color: #4267B2;
+                }
+                
+                .twitter-button {
+                    background-color: #1DA1F2;
+                }
+                
+                .restart-button {
+                    margin-top: 2rem;
+                    padding: 0.8rem 1.5rem;
+                    background-color: #3B6D3A;
+                    color: white;
+                    border: none;
+                    border-radius: 4px;
+                    cursor: pointer;
+                }
+                
+                .interactive-heading {
+                    text-align: center;
+                    color: #3B6D3A;
+                    margin: 3rem 0 1rem;
+                }
+                
+                .quiz-description {
+                    text-align: center;
+                    max-width: 600px;
+                    margin: 0 auto 2rem;
+                }
+            </style>
+        </head>
+        <body>
+            <header>
+                <h1>Attitudes Toward Wolves in America</h1>
+                <h2>How identity, values, and place influence wolf perceptions</h2>
+                <div class="intro">
+                    <p>Wolves evoke strong emotions in people. Some view them as a symbol of wilderness and ecological balance, while others see them as a threat to livelihoods. Scroll down to explore how different groups view wolves, and what factors shape these attitudes.</p>
+                </div>
+            </header>
+        
+            <div class="scroll-container">
+                <div class="sticky-graphic">
+                    <div id="chart"></div>
+                    <div class="tooltip" style="opacity: 0;"></div>
+                </div>
+                
+                <div class="steps-container">
+                    <div class="step" id="step1">
+                        <div class="step-content">
+                            <h3>Wolf Attitudes Across Stakeholder Groups</h3>
+                            <p>Research shows that stakeholders have markedly different attitudes toward wolves, influenced by their values, identity, and relationship to the land. This visualization explores these differences.</p>
+                
+                        </div>
+                    </div>
+                  
+                    
+                    <div class="step" id="step2">
+                        <div class="step-content">
+                            <h3>Environmental Groups</h3>
+                            <p>Environmental groups show the most positive attitudes toward wolves among all stakeholders, with <span class="highlight">69% expressing positive views</span>. These groups value wolves for their ecological role and symbolic importance in natural ecosystems.</p>
+                            <div class="key-stat">69%</div>
+                            <div class="key-stat-description">Positive attitude toward wolves</div>
+                            <p>Their attitudes are shaped by environmental values that prioritize biodiversity and ecological integrity over economic considerations.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step" id="step3">
+                        <div class="step-content">
+                            <h3>Urban Residents</h3>
+                            <p>Urban residents also demonstrate highly positive attitudes toward wolves, with <span class="highlight">67% expressing positive views</span>. This group generally experiences minimal direct conflict with wolves in their daily lives.</p>
+                            <div class="key-stat">67%</div>
+                            <div class="key-stat-description">Positive attitude toward wolves</div>
+                            <p>Research suggests that urban residents with nature-based recreational experiences tend to have more positive attitudes toward wildlife in general, including wolves.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step" id="step4">
+                        <div class="step-content">
+                            <h3>General Public</h3>
+                            <p>The general American public shows predominantly positive attitudes toward wolves, with <span class="highlight">61% expressing positive views</span> compared to 22% expressing negative views.</p>
+                            <div class="key-stat">61%</div>
+                            <div class="key-stat-description">Positive attitude toward wolves</div>
+                            <p>This reflects broader social changes over recent decades, with growing environmental awareness and shifting cultural values around wildlife conservation.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step" id="step5">
+                        <div class="step-content">
+                            <h3>Hunters</h3>
+                            <p>Hunters represent a more divided stakeholder group. <span class="highlight">About 43% express positive attitudes</span> toward wolves, while <span class="highlight">45% express negative attitudes</span>.</p>
+                            <div class="key-stat">45% vs 43%</div>
+                            <div class="key-stat-description">Negative vs Positive attitudes</div>
+                            <p>This split reflects competing values within the hunting community. Some hunters view wolves as competitors for game animals, while others appreciate wolves as part of a healthy ecosystem and hunting tradition.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step" id="step6">
+                        <div class="step-content">
+                            <h3>Rural Residents</h3>
+                            <p>Rural residents show a pattern similar to hunters, with <span class="highlight">43% expressing negative attitudes</span> compared to 41% with positive attitudes toward wolves.</p>
+                            <div class="key-stat">43% vs 41%</div>
+                            <div class="key-stat-description">Negative vs Positive attitudes</div>
+                            <p>Place-based factors play a significant role here. Rural residents in areas with wolves may have more direct experiences with wolf-related conflicts, shaping their perceptions of risk and benefit.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step" id="step7">
+                        <div class="step-content">
+                            <h3>Farmers/Ranchers</h3>
+                            <p>Farmers and ranchers show the most negative attitudes of all stakeholder groups, with <span class="highlight">55% expressing negative views</span> toward wolves.</p>
+                            <div class="key-stat">55%</div>
+                            <div class="key-stat-description">Negative attitude toward wolves</div>
+                            <p>This group experiences the most direct economic risk from wolves through livestock depredation. Their utilitarian values and livelihood concerns strongly influence their perceptions of wolves as primarily a threat rather than a benefit.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step" id="step8">
+                        <div class="step-content">
+                            <h3>Geographic Differences</h3>
+                            <p>Attitudes also vary significantly by region and wolf presence. Areas without wolves show much more positive attitudes (65%) than areas with persistent wolf populations (45%).</p>
+                            <p>This "distance effect" supports the theory that direct experience with wolves and associated conflicts tends to decrease positive attitudes, while people further removed from potential conflicts maintain more idealistic views.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step" id="step9">
+                        <div class="step-content">
+                            <h3>Demographic Factors</h3>
+                            <p>Several demographic factors consistently influence wolf attitudes:</p>
+                            <p><span class="highlight">Education:</span> Higher education correlates with more positive attitudes (65% vs 45%)</p>
+                            <p><span class="highlight">Age:</span> Younger people tend to have more positive attitudes than older generations (63% vs 40%)</p>
+                            <p><span class="highlight">Experience:</span> People with direct wolf experience show more negative attitudes (48% negative)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step" id="step10">
+                        <div class="step-content">
+                            <h3>Understanding the Divide</h3>
+                            <p>Wolf conservation conflicts aren't simply about wolves themselves. They reflect deeper societal divisions around identity, values, and relationships to land.</p>
+                            <p>Effective conservation requires understanding these divides and developing policies that address both ecological and social dimensions of wolf management.</p>
+                            <p>With wolf populations expanding into new areas, bridging these divides becomes increasingly important for successful coexistence.</p>
+                            <div class="source">Source: Based on research by Slagle, Wilson, and Bruskotter (2022), and Carlson, Dietsch, Slagle, and Bruskotter (2020).</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+    
+            <h1 class="interactive-heading">Let's take a quiz!</h1>
+            <p class="quiz-description">After exploring how different groups view wolves, take our quiz to discover where your own attitudes fall and which stakeholder group you most closely align with!</p>
+            <div id="quiz-container">
+      
+            </div>
+        
+           
+        
+            <script src="https://d3js.org/d3.v7.min.js"></script>
+            <script src="sentiment/sentiment.js"></script>
+            <script src="sentiment/end.js"></script>
+       
+    
+
+      
+    <script src="pre-extinction/visualization-1.js"></script>
+    <script src="wolf-extinction/visualization-2.js"></script>
+    <script src="elk-overpopulation/visualization-3.js"></script>
+    <script src="unbalanced-ecosystem/visualization-4.js"></script>
+    <script>
+        visualization_1()
+        document.addEventListener('DOMContentLoaded', () => {
+            visualization_1();
+            visualization_2();
+        });
+        document.addEventListener("DOMContentLoaded", initializeElkVisualization);
+        document.addEventListener("DOMContentLoaded", initializeViz4);
+        window.addEventListener("load", () => {
+            const width = 800;
+            const height =600;
+
+           
+        });
+    </script>
+    <footer>
+        <p>A Howling Success:The Wolves that Saved Yellowstone</p>
+        <p>  By Authors: Amie Nguyen, Estrella Angel, Kruthika Suresh, Sabrina Farias, Srujal Patel</p>
+    </footer>  
+</body>
+</html>
+
+</div>
+
+</body></html>

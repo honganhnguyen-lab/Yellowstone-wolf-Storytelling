@@ -1,0 +1,82 @@
+/* VISUALIZATION 2 STYLING*/
+#visualization-2 {
+    position: relative;
+    height: 700vh; 
+    text-align: left;
+}
+
+#vis-2 {
+    position: sticky;
+    top: 50px;
+    bottom: 50px;
+    width: 610px;
+    height: 591px;
+    background-image: url("images/MapOfExtinctionArea.png");
+    background-size: 610px 591px; /* Match EXACTLY */
+    background-repeat: no-repeat;
+    background-position: top left;
+
+}
+
+#vis2-container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap:10px;
+}
+
+#visualization-2{
+    margin-bottom: 50px;
+    /* text-align: left; */
+    margin: 0px 120px;
+}
+
+#year-message {
+    position: sticky;
+    top: 100px;
+    width: 300px;
+    margin-top: -550px;
+    margin-left: 650px;
+    margin-bottom: 325px;
+    z-index: 100;
+    background-color: white;
+    padding: 10px;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    transition: position 0.2s;
+}
+
+#year-message {
+    /* margin-top: 20px; */
+    text-align: center;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  #year-message #vis-2-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+  }
+  
+  #year-message #year-label {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 10px;
+  }
+  
+  #year-message #message-text {
+    font-size: 1rem;
+    color: #222;
+    margin-bottom: 8px;
+  }
+  
+  #year-message #message-source {
+    font-size: 0.9rem;
+    font-style: italic;
+    color: #555;
+  }
+  

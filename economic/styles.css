@@ -1,0 +1,288 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color: #f8f6f2;
+    color: #333333;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.scrolly-container {
+    position: relative;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+header {
+    text-align: center;
+    padding: 3rem 0;
+}
+
+h1 {
+    font-size: 2.0rem;
+    color: #5F3820;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    color: #3B6D3A;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #916937;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.scrolly-wrapper {
+    position: relative;
+    display: flex;
+    min-height: 100vh;
+}
+
+.scrolly-text-column {
+    flex: 0 0 40%;
+    padding-right: 2rem;
+}
+
+.scrolly-viz-column {
+    flex: 0 0 60%;
+    position: relative;
+}
+
+.scrolly-step {
+    min-height: 90vh;
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.scrolly-step h2 {
+    border-bottom: 3px solid #A0AA91;
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+.scrolly-step p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.scrolly-step .highlight {
+    color: #3B6D3A;
+    font-weight: 600;
+}
+
+.scrolly-step .metric {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #5F3820;
+    margin: 0.5rem 0;
+}
+
+.scrolly-step .metric-label {
+    font-size: 1rem;
+    color: #916937;
+    margin-bottom: 1.5rem;
+}
+
+.scrolly-viz {
+    position: sticky;
+    top: 2rem;
+    height: calc(100vh - 4rem);
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.viz-container {
+    width: 100%;
+    height: 100%;
+    padding: 1.5rem;
+    position: relative;
+}
+
+.sankey-tooltip {
+    position: absolute;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 1px solid #A7A58E;
+    border-radius: 4px;
+    pointer-events: none;
+    font-size: 14px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.sankey-tooltip-title {
+    font-weight: 700;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #B9A38F;
+    color: #5F3820;
+}
+
+.legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+    justify-content: center;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    font-size: 0.5rem;
+    margin-right: 15px;
+}
+
+.legend-color {
+    width: 15px;
+    height: 15px;
+    margin-right: 6px;
+    border-radius: 3px;
+}
+
+.scrolly-step {
+    opacity: 0.3;
+    transition: opacity 0.5s;
+}
+
+.scrolly-step.active {
+    opacity: 1;
+}
+
+@keyframes flowAnimation {
+    0% {
+        stroke-dashoffset: 1000;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+.link {
+    transition: stroke-opacity 0.5s;
+}
+
+.node rect {
+    transition: opacity 0.5s, height 0.5s, y 0.5s;
+}
+
+.viz-status {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 0.8rem;
+    padding: 5px 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 4px;
+    border: 1px solid #A7A58E;
+    opacity: 0.8;
+}
+
+.flow-particles circle {
+    fill: white;
+}
+
+.animation-controls {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+.animation-controls button {
+    padding: 5px 10px;
+    background-color: white;
+    border: 1px solid #A0AA91;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.animation-controls button:hover {
+    background-color: #f8f6f2;
+}
+
+.bubble-chart-section {
+    margin-top: 4rem;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.bubble-chart-section h2 {
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.section-description {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    color: #916937;
+    font-size: 1.1rem;
+}
+
+.bubble-chart-container {
+    width: 100%;
+    height: 500px;
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.chart-legend {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #333333;
+    padding: 1rem;
+    border-top: 1px solid #A7A58E;
+    margin-top: 1rem;
+}
+
+.legend-title {
+    font-weight: bold;
+    color: #5F3820;
+}
+
+@media (max-width: 1200px) {
+    .scrolly-wrapper {
+        flex-direction: column;
+    }
+    
+    .scrolly-text-column,
+    .scrolly-viz-column {
+        flex: 0 0 100%;
+        padding-right: 0;
+    }
+    
+    .scrolly-viz {
+        position: relative;
+        height: 70vh;
+        margin-bottom: 2rem;
+    }
+    
+    .scrolly-step {
+        min-height: auto;
+        padding: 1.5rem 0;
+    }
+    
+    .bubble-chart-container {
+        height: 400px;
+    }
+}
